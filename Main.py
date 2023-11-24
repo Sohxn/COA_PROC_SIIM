@@ -5,7 +5,7 @@ class Main:
     registers = (0,0,0,0,0,0,0,0)
     PC = 0
     instr_cnt=0;
-    f = open("COA_Project\instructions.txt","r")
+    f = open("instructions.txt","r")
     instruction=f.readlines()
     obj1=MemoryControl.MemoryControl(instruction,main_memory)
     ##list of instructions is sent to MemoryControl which \
