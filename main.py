@@ -13,7 +13,10 @@ class Main:
     ##list of instructions stored in main_memory[0]
 
     for i in range (len(instruction)):
+        # print(main_memory[0][PC])
         obj2 = Decoder.decoder(main_memory[0][PC])
         PC+=1
+    
     ##loop runs for every instruction
     ##each instruction is sent to decoder
+    

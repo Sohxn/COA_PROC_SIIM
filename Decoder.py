@@ -1,15 +1,21 @@
-'''Decoder()
--- creates a list of 5 elements
-         0th index has operation code
-         1st index has operand type
-         2nd-4th index has operands
--- if instruction[0] == 0
-          Send to Alu()
-     elif instruction[0] == 1
-          Send to data_transfer()'''
-
-# class decoder:
-#     def __init__
+class decoder:
+    def __init__(self,instruction):
+        #considering instruction string
+        i = [] #141343
+        i.append(instruction[0]) #alu/data_transfer
+        i.append(instruction[1:5]) #opcode
+        i.append(instruction[5]) #1 bit code 
+        i.append(instruction[6:9]) #op1 (destination)
+        i.append(instruction[9:13]) #op2
+        i.append(instruction[13:]) #op3
+        
+        if i[0] == 0:
+            #send i to ALU
+        else:
+            #send i to data_transfer
+            
+        
+        
     
 
             
