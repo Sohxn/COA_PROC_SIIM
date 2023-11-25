@@ -1,5 +1,5 @@
 main_memory = [[],[]]
-registers = [5,0,3,0,0,0,4,2]
+registers = [0,0,0,0,0,0,0,0]
 
 class decoder:
     def __init__(self, instruction):
