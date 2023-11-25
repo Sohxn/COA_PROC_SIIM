@@ -1,3 +1,5 @@
+import ALU
+
 class decoder:
     def __init__(self,instruction):
         #considering instruction string
@@ -9,8 +11,8 @@ class decoder:
         i.append(instruction[9:13]) #op2
         i.append(instruction[13:]) #op3
         
-        if i[0] == 0:
-            #send i to ALU
+        if i[0] == '0':
+            obj=ALU.ALU(i)
         else:
             #send i to data_transfer
             
