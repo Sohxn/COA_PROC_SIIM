@@ -23,7 +23,7 @@ class datatransfer:
                 else:
                     compl = f"{int(compl[2:]):016d}"
                 data[a[4]] = compl  # storing from register to memory
-                f = open("COA_Project\data.txt", "w")
+                f = open("data.txt", "w")
                 for i in data:
                     f.write(i + " " + data[i] + "\n")
                 f.close()
