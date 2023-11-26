@@ -1,22 +1,31 @@
-import MemoryControl
-import Decoder
-class Main:
-    main_memory = [[],[]]
-    registers = (0,0,0,0,0,0,0,0)
-    PC = 0
-    instr_cnt=0;
-    f = open("instructions.txt","r")
-    instruction=f.readlines()
-    obj1=MemoryControl.MemoryControl(instruction,main_memory)
-    ##list of instructions is sent to MemoryControl which \
-        # saves the instructions to main memory
-    ##list of instructions stored in main_memory[0]
+from Decoder import decoder
 
-    for i in range (len(instruction)):
-        # print(main_memory[0][PC])
-        obj2 = Decoder.decoder(main_memory[0][PC])
-        PC+=1
-    
-    ##loop runs for every instruction
-    ##each instruction is sent to decoder
-    
+main_memory = [[], {}]
+registers = [0, 0, 0, 0, 0, 0, 0, 0]
+
+
+class Main:
+    PC = 0
+    f = open("COA_Project\instructions.txt", "r")
+    instruction = f.readlines()
+    main_memory[0] = instruction  # instructions saved to main_memory[0]
+    f.close()
+
+    f = open("COA_Project\data.txt", "r")
+    datalist = f.readlines()
+    for str in datalist:
+        main_memory[1].update({(str[0:4]): (str[5:21])})  # data saved to main_memory[1]
+    f.close()
+
+    for i in range(len(instruction)):  # loop runs for every instruction
+        decoder(
+            main_memory[0][PC], main_memory[1], registers
+        )  # each instruction is sent to decoder
+        PC += 1
+    print("Data in register is as follows:\n")
+    print("Register\t\tData")
+    for i in range(8):
+        print("R", i, "\t\t\t", registers[i])
+    print("\n\nData in memory is as follows:\n")
+    for i in main_memory[1]:
+        print(i, " : ", main_memory[1][i])
