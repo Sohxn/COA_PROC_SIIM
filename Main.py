@@ -6,12 +6,12 @@ registers = [0, 0, 0, 0, 0, 0, 0, 0]
 
 class Main:
     PC = 0
-    f = open("COA_Project\instructions.txt", "r")
+    f = open("instructions.txt", "r")
     instruction = f.readlines()
     main_memory[0] = instruction  # instructions saved to main_memory[0]
     f.close()
 
-    f = open("COA_Project\data.txt", "r")
+    f = open("data.txt", "r")
     datalist = f.readlines()
     for str in datalist:
         main_memory[1].update({(str[0:4]): (str[5:21])})  # data saved to main_memory[1]
