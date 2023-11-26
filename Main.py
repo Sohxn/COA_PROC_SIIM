@@ -6,7 +6,7 @@ registers = [0, 0, 0, 0, 0, 0, 0, 0]
 
 class Main:
     PC = 0
-    f = open("instructions.txt", "r")
+    f = open("program.txt", "r")
     instruction = f.readlines()
     main_memory[0] = instruction  # instructions saved to main_memory[0]
     f.close()
